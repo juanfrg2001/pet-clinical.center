@@ -1,0 +1,90 @@
+{% extends 'layout.html' %} {% block title %} Servicio {% endblock %} {% block content %}
+
+<body>
+
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="columns is-8 is-variable ">
+                    <div class="column is-two-thirds has-text-left">
+                        <h1 class="title is-1">Registra el servicio</h1>
+                        <p class="is-size-4">En este espacio vas a registrar el servicio.</p>
+                        <div class="social-media">
+                            <a href="https://facebook.com" target="_blank" class="button is-light is-large"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="button is-light is-large"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <form action="/registrarServicio" method="POST">
+
+                        <h1>Mascota</h1>
+                        </br>
+                        <div class="select is-normal select">
+                            <select name="id_mascota">
+                            {% for mascota in mascotas %}
+                              {% if mascota.7 == "Activo"%}
+                                <option required placeholder="Usuario id" value="{{ mascota.0 }}">{{ mascota.5 }}</option>     
+                              {% endif %}  
+                            {% endfor %}        
+                        </select>
+                        </div>
+                        </br>
+                        </br>
+
+                        <h1>Tipo de servicio</h1>
+                        </br>
+                        <div class="select is-normal select">
+                            <select name="id_tipo_servicio">
+                            {% for tiposervicio in tiposervicios %}
+                              {% if tiposervicio.3 == "Activo"%}
+                                <option required placeholder="Usuario id" value="{{ tiposervicio.0 }}">{{ tiposervicio.1 }}</option> 
+                              {% endif %}      
+                            {% endfor %}        
+                        </select>
+                        </div>
+                        </br>
+                        </br>
+                        <h1>Doctor</h1>
+                        </br>
+                        <div class="select is-normal select">
+                            <select name="id_doctor">
+                            {% for doctor in doctores %}
+                              {% if doctor.5 == "Activo"%}
+                                <option required placeholder="Usuario id" value="{{ doctor.0 }}">{{ doctor.1 }}</option>     
+                              {% endif %}  
+                            {% endfor %}        
+                        </select>
+                        </div>
+                        </br>
+                        </br>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" type="text" name="comentario" required placeholder="Comentarios">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" type="date" name="fecha" required placeholder="Fecha">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" type="text" name="costo" required placeholder="Costo servicio">
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Submit</button>
+                        <br />
+                        <small><em>Clinical pet center</em></small>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+</body>
+
+{% endblock %}

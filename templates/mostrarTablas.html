@@ -1,0 +1,74 @@
+{% extends 'layout.html' %} {% block title %} Admin {% endblock %} {% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - Free Bulma template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-9">
+                </br>
+                </br>
+                </br>
+                <div class="columns">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Tipo de raza
+                            </p>
+                            </a>
+                        </header>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">Raza</abbr></th>
+                                    <th>Tamano</th>
+                                    <th><abbr title="Played">Especie</abbr></th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for mascota in mascotas %}
+                                    <tr>
+                                        <td>
+                                            {{mascota.1}}
+                                        </td>
+                                        <td>
+                                            {{mascota.2}}
+                                        </td>
+                                        <td>
+                                            {{mascota.3}}
+                                        </td>
+                                    </tr>
+
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                        </br>
+
+                    </div>
+                    </br>
+                    </br>
+                </div>
+            </div>
+        </div>
+        <script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+
+</html>
+
+{% endblock %}

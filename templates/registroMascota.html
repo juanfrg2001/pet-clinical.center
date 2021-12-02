@@ -1,0 +1,93 @@
+{% extends 'layout.html' %} {% block title %} Home {% endblock %} {% block content %}
+
+<body>
+
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="columns is-8 is-variable ">
+                    <div class="column is-two-thirds has-text-left">
+                        <h1 class="title is-1">Registra tu mascota</h1>
+                        <p class="is-size-4">En este espacio vas a registrar tu moscota.</p>
+                        <div class="social-media">
+                            <a href="https://facebook.com" target="_blank" class="button is-light is-large"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="button is-light is-large"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <form action="/registrarMascota" method="POST">
+
+                        <h1>Usuario</h1>
+                        <div class="select is-normal select">
+                            <select name="nombre_usuario">
+                            {% for usuario in usuarios %}
+                                {% if usuario.10 == "Activo"%}
+                                    <option required placeholder="Usuario id" value="{{ usuario.0 }}">{{ usuario.2 }}</option>  
+                                {% endif %}      
+                            {% endfor %}        
+                        </select>
+                        </div>
+                        </br>
+                        </br>
+
+
+                        <h1>Raza</h1>
+                        <div class="select is-normal select">
+                            <select name="id_raza">
+                            {% for raza in razas %}
+                                {% if raza.2 == "Activo"%}
+                                    <option required placeholder="Usuario id" value="{{ raza.0 }}">{{ raza.1 }}</option>
+                                {% endif %}       
+                            {% endfor %}        
+                        </select>
+                        </div>
+                        </br>
+                        </br>
+
+                        <h1>Color</h1>
+                        <div class="select is-normal select">
+                            <select name="id_color">
+                            {% for color in colores %}
+                                {% if color.2 == "Activo"%}
+                                    <option required placeholder="Usuario id" value="{{ color.0 }}">{{ color.1 }}</option> 
+                                {% endif %}     
+                            {% endfor %}        
+                        </select>
+                        </div>
+                        </br>
+                        </br>
+                        <h1>Fecha de registro</h1>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" type="date" name="fehca_nacimiento" required placeholder="Fecha nacimiento">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" type="text" name="nombre" required placeholder="nombre">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium" type="text" name="descripcion" required placeholder="descripcion">
+                            </div>
+                        </div>
+
+
+
+
+                        <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Submit</button>
+                        <br />
+                        <small><em>Clinical pet center</em></small>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+</body>
+
+{% endblock %}

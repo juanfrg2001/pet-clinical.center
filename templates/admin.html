@@ -1,0 +1,228 @@
+{% extends 'layout.html' %} {% block title %} Admin {% endblock %} {% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - Free Bulma template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-9">
+                <section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Hello, Admin.
+                            </h1>
+                            <h2 class="subtitle">
+                                I hope you are having a great day!
+                            </h2>
+                        </div>
+                    </div>
+                </section>
+                </br>
+                </br>
+                </br>
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Events
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                                    <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                                </a>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <form action="/enviarAdmin">
+                                        <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Registrar Admn o User</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        </br>
+                        </br>
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Reistrar doctor
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <form action="/tipoDoctor" method="POST">
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="nombre" required placeholder="Nombre">
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="apellido" required placeholder="Apellido">
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="area_especialidad" required placeholder="Area de trabajo">
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="descripcion" required placeholder="Descripcion">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Agregar Doctor</button>
+                                            <br />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Registrar forma de pagos
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <form action="/formaPago" method="POST">
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="nombre" required placeholder="Nombre de la forma de pago">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Agregar Doctor</button>
+                                            <br />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="column is-6">
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Reistrar tipo de servicio
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <form action="/tipoServicio" method="POST">
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="servicio" required placeholder="Nombre del servicio">
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="descripcion" required placeholder="Descripcion">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Agregar servicio</button>
+                                            <br />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </br>
+                        </br>
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Reistrar color
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <form action="/tipoColor" method="POST">
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="nombre" required placeholder="Nombre del color">
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Agregar Color</button>
+                                            <br />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </br>
+                        </br>
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Reistrar raza
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <form action="/tipoRaza" method="POST">
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="raza" required placeholder="Nombre Raza">
+                                                </div>
+                                            </div>
+
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="tamano" required placeholder="Tamano en cm">
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="control">
+                                                    <input class="input is-medium" type="text" name="especie" required placeholder="especie">
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Agregar Raza</button>
+                                            <br />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form action="/tablaInfo">
+            <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Tablas</button>
+        </form>
+
+        <script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+
+</html>
+
+{% endblock %}

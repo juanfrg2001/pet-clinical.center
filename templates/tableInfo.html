@@ -1,0 +1,515 @@
+{% extends 'layout.html' %} {% block title %} Admin {% endblock %} {% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - Free Bulma template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-9">
+                <section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Hello, Admin.
+                            </h1>
+                            <h2 class="subtitle">
+                                I hope you are having a great day!
+                            </h2>
+                        </div>
+                    </div>
+                </section>
+                </br>
+                </br>
+                </br>
+                <div class="columns">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Tipo de raza
+                            </p>
+                            </a>
+                        </header>
+
+
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">Raza</abbr></th>
+                                    <th>Tamaño</th>
+                                    <th><abbr title="Played">Especie</abbr></th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for raza in razas %}
+                                    <tr>
+                                        <td>
+                                            {{raza.1}}
+                                        </td>
+                                        <td>
+                                            {{raza.2}}
+                                        </td>
+                                        <td>
+                                            {{raza.3}}
+                                        </td>
+                                        <td>
+                                            {{raza.4}}
+                                        </td>
+                                        <td>
+                                            <form action="/eliminarRaza/{{raza.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Eliminar</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="/activarRaza/{{raza.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Activar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                        </br>
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Tipo de doctor
+                            </p>
+                            </a>
+                        </header>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">Id doctor</abbr></th>
+                                    <th>Nombre</th>
+                                    <th><abbr title="Played">Apellido</abbr></th>
+                                    <th><abbr title="Position">Area especialidad</abbr></th>
+                                    <th>Descripcion</th>
+                                    <th>Estado</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for doctor in doctors %}
+                                    <tr>
+                                        <td>
+                                            {{doctor.1}}
+                                        </td>
+                                        <td>
+                                            {{doctor.2}}
+                                        </td>
+                                        <td>
+                                            {{doctor.3}}
+                                        </td>
+                                        <td>
+                                            {{doctor.4}}
+                                        </td>
+                                        <td>
+                                            {{doctor.5}}
+                                        </td>
+                                        <td>
+                                            {{doctor.6}}
+                                        </td>
+                                        <td>
+                                            <form action="/eliminarDoctor/{{doctor.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Eliminar</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="/activarDoctor/{{doctor.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Activar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                        </br>
+                        <table class="table">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Tipo de identificacion
+                                </p>
+                                </a>
+                            </header>
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">Raza</abbr></th>
+                                    <th>Tipo de cedula</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for identificacion in identificacions %}
+                                    <tr>
+                                        <td>
+                                            {{identificacion.0}}
+                                        </td>
+                                        <td>
+                                            {{identificacion.1}}
+                                        </td>
+
+
+                                    </tr>
+
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                        </br>
+                        <table class="table">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Mascotas
+                                </p>
+                                </a>
+                            </header>
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">id_mascotas</abbr></th>
+                                    <th>id_usuario</th>
+                                    <th><abbr title="Position">id_raza</abbr></th>
+                                    <th>id_color</th>
+                                    <th><abbr title="Position">fecha nacimiento</abbr></th>
+                                    <th>Nombre</th>
+                                    <th><abbr title="Position">Descripcion</abbr></th>
+                                    <th>Estado</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for mascota in mascotas %}
+                                    <tr>
+                                        <td>
+                                            {{mascota.0}}
+                                        </td>
+                                        <td>
+                                            {{mascota.1}}
+                                        </td>
+                                        <td>
+                                            {{mascota.2}}
+                                        </td>
+                                        <td>
+                                            {{mascota.3}}
+                                        </td>
+                                        <td>
+                                            {{mascota.4}}
+                                        </td>
+                                        <td>
+                                            {{mascota.5}}
+                                        </td>
+                                        <td>
+                                            {{mascota.6}}
+                                        </td>
+                                        <td>
+                                            {{mascota.7}}
+                                        </td>
+
+                                        <td>
+                                            <form action="/eliminarMascota/{{mascota.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Eliminar</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="/activarMascota/{{mascota.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Activar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                        </br>
+                        <table class="table">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Tipo de color
+                                </p>
+                                </a>
+                            </header>
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">id color</abbr></th>
+                                    <th>Color</th>
+                                    <th>Estado</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for color in colores %}
+                                    <tr>
+                                        <td>
+                                            {{color.0}}
+                                        </td>
+                                        <td>
+                                            {{color.1}}
+                                        </td>
+                                        <td>
+                                            {{color.2}}
+                                        </td>
+
+                                        <td>
+                                            <form action="/eliminarColor/{{color.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Eliminar</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="/activarColor/{{color.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Activar</button>
+                                            </form>
+                                        </td>
+
+
+                                    </tr>
+
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                        <table class="table">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Tipo de pagos
+                                </p>
+                                </a>
+                            </header>
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">id pago</abbr></th>
+                                    <th>nombre</th>
+                                    <th>estado</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for pago in pagos %}
+                                    <tr>
+                                        <td>
+                                            {{pago.0}}
+                                        </td>
+                                        <td>
+                                            {{pago.1}}
+                                        </td>
+                                        <td>
+                                            {{pago.2}}
+                                        </td>
+
+                                        <td>
+                                            <form action="/eliminarPago/{{pago.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Eliminar</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="/activarPago/{{pago.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Activar</button>
+                                            </form>
+                                        </td>
+
+
+                                    </tr>
+
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                        <table class="table">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Tipo de servicio
+                                </p>
+                                </a>
+                            </header>
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">Id servicio</abbr></th>
+                                    <th>Nombre</th>
+                                    <th>Descripcion</th>
+                                    <th>Estado</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for servicio in servicios %}
+                                    <tr>
+                                        <td>
+                                            {{servicio.0}}
+                                        </td>
+                                        <td>
+                                            {{servicio.1}}
+                                        </td>
+                                        <td>
+                                            {{servicio.2}}
+                                        </td>
+                                        <td>
+                                            {{servicio.3}}
+                                        </td>
+
+
+                                        <td>
+                                            <form action="/eliminarServicio/{{servicio.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Eliminar</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="/activarServicio/{{servicio.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Activar</button>
+                                            </form>
+                                        </td>
+
+
+                                    </tr>
+
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                        <table class="table">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Usuarios
+                                </p>
+                                </a>
+                            </header>
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">Id id_usuario</abbr></th>
+                                    <th>id_rol</th>
+                                    <th>nombre</th>
+                                    <th>apellido</th>
+                                    <th>Identificacion</th>
+                                    <th>Estado</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for usuario in usuarios %}
+                                    <tr>
+                                        <td>
+                                            {{usuario.0}}
+                                        </td>
+                                        <td>
+                                            {{usuario.1}}
+                                        </td>
+                                        <td>
+                                            {{usuario.2}}
+                                        </td>
+                                        <td>
+                                            {{usuario.3}}
+                                        </td>
+                                        <td>
+                                            {{usuario.5}}
+                                        </td>
+                                        <td>
+                                            {{usuario.10}}
+                                        </td>
+                                        <td>
+                                            <form action="/eliminarUsuario/{{usuario.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Eliminar</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="/activarUusario/{{usuario.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Activar</button>
+                                            </form>
+                                        </td>
+
+
+                                    </tr>
+
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                        <table class="table">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Tipo de pagos
+                                </p>
+                                </a>
+                            </header>
+                            <thead>
+                                <tr>
+                                    <th><abbr title="Position">id pago</abbr></th>
+                                    <th>nombre</th>
+                                    <th>estado</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    {% for rol in rols %}
+                                    <tr>
+                                        <td>
+                                            {{rol.0}}
+                                        </td>
+                                        <td>
+                                            {{rol.1}}
+                                        </td>
+                                        <td>
+                                            {{rol.2}}
+                                        </td>
+
+                                        <td>
+                                            <form action="/eliminarRol/{{rol.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Eliminar</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="/activarRol/{{rol.0}}" , method="POST">
+                                                <button type="submit" class="button is-block is-primary is-fullwidth is-medium">Activar</button>
+                                            </form>
+                                        </td>
+
+
+                                    </tr>
+
+                                    {%endfor%}
+
+                                </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                    </br>
+                    </br>
+                </div>
+            </div>
+        </div>
+        <script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+
+</html>
+
+{% endblock %}
