@@ -35,7 +35,7 @@
                         <div class="select is-normal select">
                             <select name="id_raza">
                             {% for raza in razas %}
-                                {% if raza.2 == "Activo"%}
+                                {% if raza.4 == "Activo"%}
                                     <option required placeholder="Usuario id" value="{{ raza.0 }}">{{ raza.1 }}</option>
                                 {% endif %}       
                             {% endfor %}        
